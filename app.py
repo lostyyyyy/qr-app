@@ -5,11 +5,36 @@ import random
 
 app = Flask(__name__)
 
-URL = "https://qr-app.onrender.com/qr.png"
+URL = "https://qr-app-ua9a.onrender.com"
 
 @app.route("/")
 def home():
-    return '<h1>QR Code</h1><img src="/qr.png">'
+    return '''
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: white;
+            }
+            img {
+                max-width: 90vw;
+                max-height: 90vh;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="/qr.png">
+    </body>
+    </html>
+    '''
 
 @app.route("/qr.png")
 def generate_qr():
